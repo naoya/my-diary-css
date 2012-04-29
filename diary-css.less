@@ -25,7 +25,8 @@
 @lightGray:       #727374;
 @bruiseBlue:      #293587;
 @darkBlue:        #314a64;
-@grass:           #557933;
+// @grass:           #557933;
+@grass:           #719a4e;
 @lightGrass:      #bbdb90;
 @skyblue:         #00afd8;
 @vermilion:       #ec3925;
@@ -41,8 +42,9 @@
 
 // Text and background colors
 // -------------------------
-@bodyBackground:  @beige;
-@footerBackground: darken(@bodyBackground, 10%);
+@bodyBackground:  @qwhite;
+// @footerBackground: darken(@beige, 10%);
+@footerBackground: darken(@beige, 10%);
 @textColor:       @gray;
 @footerTextColor: @black;
 @borderColor:     #cdcdcc;
@@ -181,7 +183,15 @@ a:hover {
 }
 
 a.keyword {
+  color: @textColor;
   text-decoration: none;
+  border-bottom: 1px solid @borderColor;
+}
+
+a.keyword:hover {
+  color: darken(@textColor, 10%);
+  // text-decoration: underline;
+  border-bottom: 1px solid @grass;
 }
 
 div#footer {
@@ -296,11 +306,6 @@ h1 {
   a {
     color: @titleFontColor;
     // color: #00AFD9;
-  }
-
-  img {
-    max-width: 64px;
-    .border-radius(5px);
   }
 }
 
