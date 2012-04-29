@@ -1,0 +1,423 @@
+// Import Hatena-origin styles
+// -------------------------
+@import url("http://d.st-hatena.com/statics/css/base.css");
+@import url("http://d.st-hatena.com/statics/css/headerstyle_de.css");
+
+// Web fonts
+// -------------------------
+@import url(http://fonts.googleapis.com/css?family=Canata+One);
+
+
+// Container
+// -------------------------
+
+@bodyWidth:         80%;
+@bodyMaxWidth:    800px;
+@bodyMinWidth:    300px;
+
+// Colors
+// -------------------------
+
+@white:           #fff;
+@black:           #000;
+@beige:           #efedea;
+@gray:            #333;
+@lightGray:       #727374;
+@bruiseBlue:      #293587;
+@darkBlue:        #314a64;
+@grass:           #557933;
+@lightGrass:      #bbdb90;
+@skyblue:         #00afd8;
+@vermilion:       #ec3925;
+@hotWater:        #0ca5b0;
+@coffeeBeans:     #4e3f30;
+@milk:            #fefeeb;
+@sugar:           #f8f4e4;
+@stlrrlngSpoon:   #a5b3aa;
+
+@qwhite:          #eeeeee;
+@loversGray:      #515151;
+@metroBlue:       #00B4ff;          
+
+// Text and background colors
+// -------------------------
+@bodyBackground:  @beige;
+@footerBackground: darken(@bodyBackground, 10%);
+@textColor:       @gray;
+@footerTextColor: @black;
+@borderColor:     #cdcdcc;
+
+// Links
+// -------------------------
+
+@linkColor:       @bruiseBlue;
+@linkColorHover:  darken(@linkColor, 15%);
+
+@footerLinkColor: @linkColor;
+@footerLinkColorHover: darken(@footerLinkColor, 15%);
+
+// Dates
+// -------------------------
+@dateColor:       @grass;
+
+// Typography
+// -------------------------
+@sansFontFamily:        Corbel, 'Helvetica Neue', Arial, sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;   
+@quoteFontFamily:       "Constantia", Georgia, 'Hoefler Text', 'Times New Roman', serif;
+@monoFontFamily:        Monaco, Consolas, "Courier New", monospace;
+@titleFontFamily:       'Cantata One', serif;
+
+@baseFontSize: 1.2em;
+@baseFontFamily: @sansFontFamily;
+@baseLineHeight: 1.7em;
+
+@titleFontColor: @textColor;
+@titleFontSize: @baseFontSize + 1.5;
+
+@sectionFooterColor: @lightGray;
+@sectionFooterFontSize: @baseFontSize - 0.3;
+
+@headingsFontFamily: @sansFontFamily;
+@headingsColor: @black;
+
+// Mixins
+// -------------------------
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.flexbox() {
+  display: -webkit-box;
+  display:    -moz-box;
+  display:     -ms-box;
+}
+
+.letter-press(@deep: 1px) {
+  text-shadow: 0 @deep 0 @white;
+}
+
+.quoteMargin() {
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 40px;
+  -webkit-margin-end: 40px;
+}
+
+// Container
+// ------
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: @bodyBackground;
+  color: @textColor;
+}
+
+div.hatena-body, h1, div#admin {  
+  margin-right: auto;
+  margin-left: auto;
+  max-width: @bodyMaxWidth;
+  width: @bodyWidth;
+}
+
+div#footer {
+  background-color: @footerBackground;
+  font-family: @serifFontFamily;
+  color: @footerTextColor;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-top: 2em;
+  border: 1px solid darken(@footerBackground, 2%);
+
+  .footer-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @bodyMaxWidth;
+    width: @bodyWidth;
+  }
+
+  .footer-section {
+    .flexbox();
+  }
+
+  #footer-column01 {
+    width: 80px;
+    img {
+      max-width: 64px;
+      .border-radius(5px);
+    }
+  }
+  
+  #footer-column02 {
+    width: 400px;
+  }
+
+  ul {
+    margin-top: 0;
+    padding-top: 5px;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  ul li {
+    display: inline;
+    color: darken(@footerBackground, 10%);
+  }
+}
+
+// Links
+// -----
+
+a {
+  color: @linkColor;
+  // text-decoration: none;
+}
+
+a:hover {
+  color: @linkColorHover;
+}
+
+a.keyword {
+  text-decoration: none;
+}
+
+div#footer {
+  a {
+    color: @footerLinkColor;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: @footerLinkColorHover;
+    text-decoration: underline;
+  }
+}
+
+
+// Body Text
+// ---------
+
+div.hatena-body {
+  font-size: @baseFontSize;
+
+  p {
+    font-family: @baseFontFamily;
+    line-height: @baseLineHeight;
+    margin: 1.2em 0;
+  }
+
+  p.description {
+    color: @lightGray;
+    font-size: @baseFontSize - 0.4;
+    font-weight: normal;
+    // border-bottom: 1px solid @borderColor;
+    margin-top: 0;
+    padding-left: 3px;
+    text-indent: 0;
+    text-align: left;
+    .letter-press(1px);
+  }
+
+  p.sectionfooter {
+    text-indent: 0;
+    font-size: @sectionFooterFontSize;
+    color: @sectionFooterColor;
+    text-align: right;
+  }
+
+  ul {
+    // font-size: @baseFontSize;
+    font-family: @baseFontFamily;
+  }
+
+  ul li {
+    line-height: 150%;
+  }
+
+  blockquote {
+    display: block;
+    position: relative;
+    margin: 1.5em 4em;
+    line-height: 1.45em;
+
+    p {
+    }
+
+    cite {
+      font-size: @baseFontSize - 0.3em;
+    }
+
+    ::before {
+      font-family: @quoteFontFamily;
+      left: -.5em;
+      position: absolute;
+      top: .25em;
+      content: '\201C';
+      font-size: 4em;
+      opacity: .2;
+    }
+  }
+}
+
+// HEADINGS
+// --------
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @headingsFontFamily;
+  color: @headingsColor;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  // font-weight: normal;
+  font-size: @titleFontSize;
+  font-family: @titleFontFamily;
+  text-align: left;
+  //text-transform: uppercase;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .letter-press(2px);
+
+  // background-color: #DBE3E5;
+  // background-image: url("http://www.st-hatena.com/users/na/naoya/user.jpg");
+  // background-repeat: no-repeat;
+  // margin-left: 40px;
+
+  a {
+    color: @titleFontColor;
+    // color: #00AFD9;
+  }
+
+  img {
+    max-width: 64px;
+    .border-radius(5px);
+  }
+}
+
+h1::first-letter {
+  // color: @vermilion;
+  // background-color: @skyblue;
+  // padding: 5px;
+  // margin-right: 2px;
+  // .letter-press(3);
+}
+
+h2 {
+  font-weight: normal;
+  font-size: @baseFontSize - 0.1;
+  font-family: @sansFontFamily;
+  .letter-press(1px);
+
+  a {
+    color: @dateColor;
+  }
+  a:hover {
+    color: darken(@dateColor, 15%)
+  }
+  .edit {
+    color: @lightGray;
+    font-size: 70%;
+  }
+  .edit:hover {
+    color: darken(@lightGray, 15%);
+  }
+}
+
+#footer h2 {
+  color: @footerTextColor;
+  font-family: @titleFontFamily;
+  font-size: @baseFontSize + 0.2;
+  font-weight: bold;
+  // text-shadow: 0 1px 0 @lightGrass;
+  .letter-press(1px);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h3 {
+  font-family: @serifFontFamily;
+  font-size: @baseFontSize + 0.2;
+  .letter-press(2px);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  
+  border-top: 1px solid @borderColor;
+  border-bottom: 1px solid @borderColor;
+}
+
+h4 {
+  font-size: @baseFontSize;
+  // .letter-press(1px);
+}
+
+h5 {
+  // .letter-press(1px);
+}
+
+#footer h3 {
+  color: @footerTextColor;
+  font-family: @serifFontFamily;
+  font-weight: normal;
+  font-size: @baseFontSize - 0.2;
+  .letter-press(0);
+  padding-top: 5px;
+
+  border-top: 0;
+  border-bottom: 0;
+}
+
+// Inline and block code styles
+// --------
+
+code, pre {
+  font-family: @monoFontFamily;
+  font-size: @baseFontSize - 0.4;
+}
+
+pre {
+  display: block;
+  // padding: (@baseLineHeight - 1) / 2;
+  // margin: 0 0 @baseLineHeight / 2;
+  padding: 1em;
+  margin: 0.5em;
+  word-break: break-all;
+  word-wrap : break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0,0,0,.15);
+  .border-radius(4px);
+}
+
+// Misc
+// ------
+div.calendar {
+  font-family: @sansFontFamily;
+  font-size: @baseFontSize - 0.3;
+  text-align: right;
+}
+
+// Admin
+// ------
+div#admin {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div#admin textarea {
+  width: 100%;
+  height: 20em;
+}

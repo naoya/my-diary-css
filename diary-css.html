@@ -1,0 +1,94 @@
+<head>
+  <title>diary-css</title>
+</head>
+
+<body>
+  {{> header}}
+  {{> diary}}
+  {{> footer}}
+  {{> admin}}
+</body>
+
+<template name="header">
+  <div id="simple-header">
+    <a href=""><img src="http://d.hatena.ne.jp/images/hatena-simple_de.gif" id="logo-hatena" width="65" height="17" /></a><a href=""><img src="http://d.hatena.ne.jp/images/diary-simple_de.gif" id="logo-diary" width="43" height="17" /></a>
+    <form method="get" action="" class="search-form">
+      <input type="text" class="search-word" name="word" />
+      <input type="submit" class="search-button" name="diary" value="日記" />
+      <input type="submit" class="search-button" name="submit" value="検索" />
+      <ul class="menu">
+        <li><a href="">ブログトップ</a></li>
+        <li><a href="">記事一覧</a></li>
+        <li><a href="">記事を書</a></li>
+        <li><a href="">管理</a></li>
+        <li><a href="">ログアウト</a></li>
+        <li><a href="">ヘルプ</a></li>
+      </ul>
+    </form>
+  </div>
+</template>
+
+<template name="admin">
+  <div id="admin">
+    <textarea id="text"></textarea>
+    <button>記事追加</button>
+  </div>
+</template>
+
+<template name="diary">
+  {{#with diary}}
+  <h1><a href="">{{title}}</a></h1>
+  <div class="hatena-body">
+    <p class="description">{{description}}</p>
+    <div class="main">
+      <div class="calendar" id="pager-top">
+        <a rel="prev" href="/naoya/?of=5" class="prev">&lt;前の5日分</a>&nbsp;<span id="edit-in-place-add"></span>
+      </div><!-- .calendar -->
+
+      <div id="days">
+        {{> entries}}
+      </div><!-- #days -->
+
+      <div class="calendar" id="pager-bottom">
+        <a rel="prev" href="/naoya/?of=5" class="prev">&lt;前の5日分</a>&nbsp;<span id="edit-in-place-add"></span>
+      </div><!-- .calendar -->
+
+    </div><!-- .main -->
+  </div><!-- hatena-body -->
+  {{/with}}
+</template>
+
+<template name="entries">
+
+  <div class="day">
+    <h2><a href="/naoya/20111111"><span class="date">November 11, 2011</span></a> <a href="" class="edit">編集</a></h2>
+    <div class="body">
+      {{#each entries}}
+        {{{hatenafy text}}}
+      {{/each}}
+    </div><!-- body -->
+  </div><! -- day -->
+
+</template>
+
+<template name="footer">
+  <div id="footer">
+    <div class="footer-wrapper">
+      <div class="footer-section">
+        <div id="footer-column01">
+          <a href="/about"><img src="http://www.st-hatena.com/users/na/naoya/user.jpg" alt="Naoya Ito" title="Naoya Ito" /></a>
+        </div>
+        <div id="footer-column02">
+          <h2>Naoya Ito</h2>
+          <h3><a href="http://d.hatena.ne.jp/naoya/about">id:naoya</a></h3>
+          <ul>
+            <li><a href="http://twitter.com/naoya_ito">Twitter</a> | </li>
+            <li><a href="https://github.com/naoya">github</a> | </li>
+            <li><a href="http://www.flickr.com/photos/naoya1977/">Flickr</a> |</li>
+            <li><a href="http://b.hatena.ne.jp/naoya/">はてなブックマーク</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
