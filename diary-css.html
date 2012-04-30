@@ -70,8 +70,91 @@
         {{{hatenafy text}}}
       {{/each}}
     </div><!-- body -->
+
+    {{> comments}}
+    {{> trackbacks}}
+    {{> referers}}
   </div><! -- day -->
 
+</template>
+
+<template name="comments">
+  <form>
+    <div class="comment">
+      <div class="caption">
+        <a name="c">コメントを書く</a>
+      </div>
+      
+      <div class="commentshort">
+        <p class="commentdelete">
+          <input type="submit" name="deletecomment" value="コメントを削除する" />
+          <label for="inform_spams">
+            <input type="checkbox" id="inform_spams" /> スパムコメントとして報告する
+          </label>
+        </p>
+
+        {{#each comments}}
+        <p>
+          <input type="checkbox">
+          <span class="commentator"><a href="" class="hatena-id-icon">{{{proficon user}}}{{user}}</a></span>
+          <span class="timestamp"><a href="">2012/03/31 09:54</a></span>
+          <span class="commentbody">{{text}}</span>
+        </p>
+        {{/each}}
+
+        <p class="commentmessage">投稿したコメントは管理者が承認するまで公開されません</p>
+
+        <p class="commentform">
+          <span class="commentator">
+            <span class="username">
+              {{{proficon "naoya"}}}
+              naoya
+            </span>
+          </span>
+          <br>
+          <textarea id="comment-textarea" cols="60" rows="3"></textarea><br>
+          <span class="comment-submit"><input type="submit" id="comment-form-button" value="投稿"></span>
+        </p>
+      </div><!-- commentshort" -->
+    </div>
+  </form>
+</template>
+
+<template name="trackbacks">
+  <form>
+    <div class="refererlist">
+      <div class="caption">
+        <a>トラックバック</a> - http://d.hatena.ne.jp/naoya/20120331/1333150786
+      </div>
+
+      <p class="commentdelete">
+        <input type="submit" value"トラックバックを削除する" />
+        <label for="inform_spams_trackback"><input type="checkbox" name="inform_spams" id="inform_spams_trackback"> スパムトラックバックとして報告する</label>
+      </p>
+
+      <ul>
+        {{#each trackbacks}}
+        <li><input type="checkbox" name="tbid" /> <a href="">{{title}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</template>
+
+<template name="referers">
+  <div class="refererlist">
+    <div class="caption">リンク元</div>
+    <ul>
+      <li>4110 <a href="">http://b.hatena.ne.jp/</a></li>
+      <li>1742 <a href="">http://b.hatena.ne.jp/hotentry</a></li>
+      <li>1679 <a href="">http://t.co/V71De7Zy</a></li>
+      <li>1342 <a href="">http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;sqi=2&amp;ved=0CDoQFjAA&amp;url=http://d.hatena.ne.jp/naoya/&amp;ei=pkR2T4ShGOnPmAWayrnpDw&amp;usg=AFQjCNEBvAjlIE2JcJMgX6wJ-cGN8CL03w&amp;sig2=drzHjirkoZ_vm86cKCmiUQ</a></li>
+      <li>1254 <a href="">http://reader.livedoor.com/reader/</a></li>
+    </ul>
+    <div class="calendar referer-list-more">
+      <a href="">リンク元をすべて見る</a>
+    </div>
+  </div>
 </template>
 
 <template name="footer">
@@ -79,7 +162,7 @@
     <div class="footer-wrapper">
       <div class="footer-section">
         <div id="footer-column01">
-          <a href="/about"><img src="http://www.st-hatena.com/users/na/naoya/user.jpg" alt="Naoya Ito" title="Naoya Ito" /></a>
+          <a href="/naoya/about"><img src="http://www.st-hatena.com/users/na/naoya/user.jpg" alt="Naoya Ito" title="Naoya Ito" /></a>
         </div>
         <div id="footer-column02">
           <h2>Naoya Ito</h2>
