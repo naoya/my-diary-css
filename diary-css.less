@@ -259,16 +259,16 @@ div.hatena-body {
     cite {
       font-size: @baseFontSize - 0.3em;
     }
+  }
 
-    ::before {
-      font-family: @quoteFontFamily;
-      left: -.5em;
-      position: absolute;
-      top: .25em;
-      content: '\201C';
-      font-size: 4em;
-      opacity: .2;
-    }
+  blockquote::before {
+    font-family: @quoteFontFamily;
+    left: -.5em;
+    position: absolute;
+    top: .25em;
+    content: '\201C';
+    font-size: 4em;
+    opacity: .2;
   }
 }
 
@@ -393,6 +393,12 @@ div.comment, div.refererlist {
 
   word-break: break-all;
   word-wrap : break-word;
+
+  ul {
+    list-style-type: disc;
+    margin-left: 0;
+    padding-left: 10px;
+  }
 
   ul li {
     white-space: nowrap;
