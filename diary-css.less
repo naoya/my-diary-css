@@ -394,6 +394,14 @@ div.comment, div.refererlist {
   word-break: break-all;
   word-wrap : break-word;
 
+  ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+  }
+
   textarea {
     width: 70%;
     height: 10em;
