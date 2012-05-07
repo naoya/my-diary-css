@@ -15,12 +15,12 @@ if Meteor.is_client
         t.val("")
 
   Template.diary.diary = () ->
-    title: "Naoya's Hatena Diary"
+    title: "naoyaのはてなダイアリー"
     url: 'http://d.hatena.ne.jp/naoya/'
     description: 'naoyaのはてなダイアリー'
 
   Template.entries.hatenafy = (text) ->
-    hatena = new Hatena sectionanchor : "■"
+    hatena = new Hatena sectionanchor : "_"
     hatena.parse text
     return hatena.html()
 

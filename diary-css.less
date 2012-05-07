@@ -68,7 +68,8 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;   
 @quoteFontFamily:       "Constantia", Georgia, 'Hoefler Text', 'Times New Roman', serif;
 @monoFontFamily:        Monaco, Consolas, "Courier New", monospace;
-@titleFontFamily:       'Cantata One', serif;
+// @titleFontFamily:       'Cantata One', serif;
+@titleFontFamily:       @sansFontFamily;
 
 @baseFontSize: 1.2em;
 @baseFontFamily: @sansFontFamily;
@@ -76,6 +77,8 @@
 
 @titleFontColor: @textColor;
 @titleFontSize: @baseFontSize + 1.5;
+@titleFontColor: @lightGray;
+@titleFontSize: 14px;
 
 @sectionFooterColor: @lightGray;
 @sectionFooterFontSize: @baseFontSize - 0.3;
@@ -272,6 +275,13 @@ div.hatena-body {
   }
 }
 
+div.body {
+  ul li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
 // HEADINGS
 // --------
 
@@ -289,23 +299,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  // font-weight: normal;
+  font-weight: normal;
+  .letter-press(1px);
+
   font-size: @titleFontSize;
   font-family: @titleFontFamily;
   text-align: left;
   //text-transform: uppercase;
+  margin-top: 30px;
   margin-bottom: 0;
   padding-bottom: 0;
-  .letter-press(2px);
-
-  // background-color: #DBE3E5;
-  // background-image: url("http://www.st-hatena.com/users/na/naoya/user.jpg");
+  // padding-left: 30px;
+  
+  // background-image: url("http://naoya.dyndns.org/images/gapple_trans.png");
   // background-repeat: no-repeat;
-  // margin-left: 40px;
+  // background-position: left;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
+  // padding-left: 29px;
 
   a {
     color: @titleFontColor;
-    // color: #00AFD9;
   }
 }
 
@@ -323,7 +337,10 @@ h2 {
   font-family: @sansFontFamily;
   .letter-press(1px);
 
+  margin-top: 10px;
+
   a {
+    // color: @dateColor;
     color: @dateColor;
   }
   a:hover {
@@ -358,9 +375,23 @@ h3 {
   margin-bottom: 0;
   padding-top: 0.8em;
   padding-bottom: 0.8em;
-  
+
   border-top: 1px solid @borderColor;
   border-bottom: 1px solid @borderColor;
+
+  .sanchor {
+    color: @bodyBackground;
+    text-decoration: none;
+    background-image: url("http://naoya.dyndns.org/images/gapple_trans.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    padding: 25px 23px 0 0;
+    margin-right: 3px;
+
+    font-size: 0px;
+    color: @bodyBackground;
+    .letter-press(0px);
+  }
 }
 
 h4 {
@@ -373,6 +404,8 @@ h5 {
 }
 
 #footer h3 {
+  background-image: none;
+  padding-left: 0;
   color: @footerTextColor;
   font-family: @serifFontFamily;
   font-weight: normal;
@@ -390,9 +423,18 @@ h5 {
 div.comment, div.refererlist {
   margin-top: 40px;
   margin-bottom: 40px;
+  font-size: 0.9em;
 
-  word-break: break-all;
-  word-wrap : break-word;
+  div.caption {
+    // font-weight: bold;
+    font-size: 1.1em;
+    .letter-press(1px);
+    border-bottom: 1px solid @borderColor;
+    
+    a {
+      color: @textColor;
+    }
+  }
 
   ul {
     list-style-type: disc;
@@ -412,17 +454,6 @@ div.comment, div.refererlist {
     width: 70%;
     height: 10em;
     border: 1px solid @borderColor;
-  }
-
-  div.caption {
-    // font-weight: bold;
-    // font-size: smaller;
-    .letter-press(1px);
-    border-bottom: 1px solid @borderColor;
-    
-    a {
-      color: @textColor;
-    }
   }
 
   input[type="submit"] {
@@ -468,7 +499,8 @@ pre {
   word-wrap : break-word;
   white-space: pre;
   white-space: pre-wrap;
-  background-color: #f5f5f5;
+  background-color: @white;
+  // color: #f5f5f5;
   border: 1px solid rgba(0,0,0,.15);
   .border-radius(4px);
 }
@@ -479,6 +511,10 @@ div.calendar {
   font-family: @sansFontFamily;
   font-size: @baseFontSize - 0.3;
   text-align: right;
+}
+
+#pager-top {
+    display: none;
 }
 
 // Admin
